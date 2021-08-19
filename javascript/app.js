@@ -1,10 +1,16 @@
 const form = document.getElementById("year_one").elements;
 
-let button = document.getElementById('get_gpa');
+let button = document.getElementById('gpa_one');
+
+combined_gpa = [];
 
 
+let reset_button = document.getElementById('reset_gpa');
 
+reset_button.onclick = function () {
+    combined_gpa = [];
 
+}
 
 button.onclick = function () {
     let year_one = [];
@@ -44,7 +50,7 @@ button.onclick = function () {
         if (year_one[i] > 75 && year_one[i] < 80)
             first_year.push('B+');
 
-        if (year_one[i] > 75 && year_one[i] < 85)
+        if (year_one[i] > 79 && year_one[i] < 85)
             first_year.push('A-');
 
         if (year_one[i] > 84)
@@ -75,9 +81,12 @@ button.onclick = function () {
         if (first_year[i] == 'A')
             gpa_one.push(4);
     }
-    let sum = gpa_one.reduce((a, b) => a + b);
-    let gpa = sum / gpa_one.length;
 
+
+    let sum = gpa_one.reduce((a, b) => a + b);
+    let gpa = sum / first_year.length;
+
+    combined_gpa.push(gpa);
 
     console.log(year_one);
     console.log(first_year);
