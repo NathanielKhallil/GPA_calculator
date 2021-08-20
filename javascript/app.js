@@ -2,16 +2,14 @@ const form = document.getElementById("year_one").elements;
 
 let button = document.getElementById('gpa_one');
 
-combined_gpa = [];
-
-
 let reset_button = document.getElementById('reset_gpa');
 
-reset_button.onclick = function () {
-    combined_gpa = [];
+let checkUpdate = false;
 
-}
+let combined_gpa = [];
 
+
+// Calculate GPA for year one in Alberta, Canada
 button.onclick = function () {
     let year_one = [];
     let first_year = [];
@@ -83,15 +81,36 @@ button.onclick = function () {
     }
 
 
+    if (checkUpdate = true) {
+        let reset = document.getElementById('listOne');
+        reset.removeChild(reset.childNodes[40]);
+    }
+
     let sum = gpa_one.reduce((a, b) => a + b);
     let gpa = sum / first_year.length;
 
+    gpa = Number((Math.abs(gpa) * 100).toPrecision(15));
+    gpa = Math.round(gpa) / 100 * Math.sign(gpa)
+
     combined_gpa.push(gpa);
 
-    console.log(year_one);
-    console.log(first_year);
-    console.log('Year 1 GPA: ' + gpa);
-    // console.log(avg);
-    // console.log(gpa)
+    const yearOneGpa = document.getElementById('listOne');
+
+    let gpaResult = document.createElement('p');
+    gpaResult.setAttribute("id", "result1");
+
+    gpaResult.textContent = 'Year 1 GPA:' + gpa;
+
+    yearOneGpa.appendChild(gpaResult);
+
+    checkUpdate = true;
+}
+
+
+
+// reset gpa total
+reset_button.onclick = function () {
+    let reset = document.getElementById('result1');
+    reset.textContent = '';
 
 }
