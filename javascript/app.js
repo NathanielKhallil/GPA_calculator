@@ -18,6 +18,7 @@ let combined_gpa = [];
 
 
 // Calculate GPA for year one in Alberta, Canada
+
 buttonOne.onclick = function () {
     let year_one = [];
     let first_year = [];
@@ -125,7 +126,6 @@ resetButtonOne.onclick = function () {
     combined_gpa = combined_gpa.splice(combined_gpa[0], 1);
     console.log(combined_gpa)
 }
-
 
 
 buttonTwo.onclick = function () {
