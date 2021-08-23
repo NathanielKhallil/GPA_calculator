@@ -214,7 +214,7 @@
               max="100"
             />
             <label id="label_one">Year 1 GPA:</label>
-            <input type="number" class="final_gpa" />
+            <input type="number" class="finalGpa" />
           </ul>
         </form>
         <div class="button__container">
@@ -433,7 +433,7 @@
               max="100"
             />
             <label id="label_one">Year 2 GPA:</label>
-            <input type="number" class="final_gpa" />
+            <input type="number" class="finalGpa" />
           </ul>
         </form>
         <div class="button__container">
@@ -653,7 +653,7 @@
             />
 
             <label id="label_one">Year 3 GPA:</label>
-            <input type="number" class="final_gpa" />
+            <input type="number" class="finalGpa" />
           </ul>
         </form>
         <div class="button__container">
@@ -873,7 +873,7 @@
             />
 
             <label id="label_one">Year 4 GPA:</label>
-            <input type="number" class="final_gpa" />
+            <input type="number" class="finalGpa" />
           </ul>
         </form>
         <div class="button__container">
@@ -888,6 +888,28 @@
             id="reset_gpa"
             class="btn"
             onclick="resetGpa(document.getElementById('year_four'))"
+            type="reset"
+            value="send"
+          >
+            Reset
+          </button>
+        </div>
+      </div>
+
+      <div class="block__container">
+        <h2>Cumulative GPA</h2>
+        <form name="endGpa" id="fourYearGpa">
+          <ul>
+            <label id="endGpaLabel">Cumulative GPA:</label>
+            <input type="number" id="totalGpa" />
+          </ul>
+        </form>
+        <div class="button__container">
+          <button id="finalGpaBtn" class="btn">Calc</button>
+          <button
+            id="reset"
+            class="btn"
+            onclick="resetGpa(document.getElementById('fourYearGpa'))"
             type="reset"
             value="send"
           >

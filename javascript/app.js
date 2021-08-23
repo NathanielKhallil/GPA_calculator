@@ -1,89 +1,90 @@
-
-let combined_gpa = [];
-
-
 // Calculate GPA for year one in Alberta, Canada
 
 function calculateGpaOne(arg) {
-    let element_list = arg.elements;
-    let number_list = [];
-    let letter_list = [];
-    let gpa_list = [];
+    let elementList = arg.elements;
+    let numberList = [];
+    let letterList = [];
+    let gpaList = [];
+    
+    const testForRerun = arg.querySelector('ul').lastElementChild;
+    
+    if (testForRerun.value > 0) {
+        testForRerun.value = '';
+    }
+    
+    for (let i = 0; i < elementList.length; i++)
+        if (elementList[i].value !== '')
+            numberList.push((elementList[i].value));
+    numberList = numberList.map(x => Number(x));
+    
+    for (let i = 0; i < numberList.length; i++) {
+        if (numberList[i] < 50)
+            letterList.push('F');
 
-    for (let i = 0; i < element_list.length; i++)
-        if (element_list[i].value !== '')
-            number_list.push((element_list[i].value));
-    number_list = number_list.map(x => Number(x));
+        if (numberList[i] > 49 && numberList[i] < 55)
+            letterList.push('D');
 
-    for (let i = 0; i < number_list.length; i++) {
-        if (number_list[i] < 50)
-            letter_list.push('F');
+        if (numberList[i] > 54 && numberList[i] < 60)
+            letterList.push('D+');
 
-        if (number_list[i] > 49 && number_list[i] < 55)
-            letter_list.push('D');
+        if (numberList[i] > 59 && numberList[i] < 64)
+            letterList.push('C-');
 
-        if (number_list[i] > 54 && number_list[i] < 60)
-            letter_list.push('D+');
+        if (numberList[i] > 63 && numberList[i] < 67)
+            letterList.push('C');
 
-        if (number_list[i] > 59 && number_list[i] < 64)
-            letter_list.push('C-');
+        if (numberList[i] > 66 && numberList[i] < 70)
+            letterList.push('C+');
 
-        if (number_list[i] > 63 && number_list[i] < 67)
-            letter_list.push('C');
+        if (numberList[i] > 69 && numberList[i] < 73)
+            letterList.push('B-');
 
-        if (number_list[i] > 66 && number_list[i] < 70)
-            letter_list.push('C+');
+        if (numberList[i] > 72 && numberList[i] < 76)
+            letterList.push('B');
 
-        if (number_list[i] > 69 && number_list[i] < 73)
-            letter_list.push('B-');
+        if (numberList[i] > 75 && numberList[i] < 80)
+            letterList.push('B+');
 
-        if (number_list[i] > 72 && number_list[i] < 76)
-            letter_list.push('B');
+        if (numberList[i] > 79 && numberList[i] < 85)
+            letterList.push('A-');
 
-        if (number_list[i] > 75 && number_list[i] < 80)
-            letter_list.push('B+');
-
-        if (number_list[i] > 79 && number_list[i] < 85)
-            letter_list.push('A-');
-
-        if (number_list[i] > 84)
-            letter_list.push('A');
+        if (numberList[i] > 84)
+            letterList.push('A');
     }
 
-    for (let i = 0; i < letter_list.length; i++) {
-        if (letter_list[i] == 'f')
-            gpa_list.push(0);
-        if (letter_list[i] == 'D')
-            gpa_list.push(1);
-        if (letter_list[i] == 'D+')
-            gpa_list.push(1.3);
-        if (letter_list[i] == 'C-')
-            gpa_list.push(1.7);
-        if (letter_list[i] == 'C')
-            gpa_list.push(2);
-        if (letter_list[i] == 'C+')
-            gpa_list.push(2.3);
-        if (letter_list[i] == 'B-')
-            gpa_list.push(2.7);
-        if (letter_list[i] == 'B')
-            gpa_list.push(3);
-        if (letter_list[i] == 'B+')
-            gpa_list.push(3.3);
-        if (letter_list[i] == 'A-')
-            gpa_list.push(3.7);
-        if (letter_list[i] == 'A')
-            gpa_list.push(4);
+    for (let i = 0; i < letterList.length; i++) {
+        if (letterList[i] == 'f')
+            gpaList.push(0);
+        if (letterList[i] == 'D')
+            gpaList.push(1);
+        if (letterList[i] == 'D+')
+            gpaList.push(1.3);
+        if (letterList[i] == 'C-')
+            gpaList.push(1.7);
+        if (letterList[i] == 'C')
+            gpaList.push(2);
+        if (letterList[i] == 'C+')
+            gpaList.push(2.3);
+        if (letterList[i] == 'B-')
+            gpaList.push(2.7);
+        if (letterList[i] == 'B')
+            gpaList.push(3);
+        if (letterList[i] == 'B+')
+            gpaList.push(3.3);
+        if (letterList[i] == 'A-')
+            gpaList.push(3.7);
+        if (letterList[i] == 'A')
+            gpaList.push(4);
     }
 
-    let sum = gpa_list.reduce((a, b) => a + b);
-    let gpa = sum / letter_list.length;
+    let sum = gpaList.reduce((a, b) => a + b);
+    let gpa = sum / letterList.length;
 
     gpa = Number((Math.abs(gpa) * 100).toPrecision(15));
     gpa = Math.round(gpa) / 100 * Math.sign(gpa)
 
-    const gpa_results = arg.querySelector('ul');
-    const gpa_input = gpa_results.lastElementChild;
-    gpa_input.value = gpa;  
+    const gpaInput = arg.querySelector('ul').lastElementChild;
+    gpaInput.value = gpa;  
 }
 
 // reset First Year GPA, delete entry from cummulative GPA
@@ -92,9 +93,37 @@ function resetGpa(resultText) {
 }
 
 
-
-
 // cumulative GPA - under construction
+
+totalButton = document.getElementById('finalGpaBtn');
+
+totalButton.onclick = function() {  
+    let gpaTotals = [];
+    
+    totalGpa = document.getElementsByClassName('finalGpa');
+    console.log(totalGpa);
+    for (i = 0; i < totalGpa.length; i++) {
+        gpaTotals.push(totalGpa[i].value);
+    }
+
+    gpaTotals = gpaTotals.map(x => Number(x)).filter(index => index !== 0);;
+   
+    console.log(gpaTotals);
+    let endGpa = gpaTotals.reduce((a, b) => a + b);
+    endGpa = endGpa / gpaTotals.length;
+
+    endGpa = Number((Math.abs(endGpa) * 100).toPrecision(15));
+    endGpa = Math.round(endGpa) / 100 * Math.sign(endGpa);
+
+    const result = document.getElementById("totalGpa");
+    result.value = endGpa;
+
+
+}
+
+
+
+
 
 // combined_gpa.push(gpa);
 // combined_gpa = combined_gpa.splice(combined_gpa[0], 1);
