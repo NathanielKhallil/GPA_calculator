@@ -1,4 +1,4 @@
-// Calculate GPA for year one in Alberta, Canada
+// calculate GPA for year one in Alberta, Canada
 
 function calculateGpaOne(arg) {
     let elementList = arg.elements;
@@ -93,7 +93,7 @@ function resetGpa(resultText) {
 }
 
 
-// cumulative GPA - under construction
+// cumulative GPA
 
 totalButton = document.getElementById('finalGpaBtn');
 
@@ -101,14 +101,13 @@ totalButton.onclick = function() {
     let gpaTotals = [];
     
     totalGpa = document.getElementsByClassName('finalGpa');
-    console.log(totalGpa);
+    
     for (i = 0; i < totalGpa.length; i++) {
         gpaTotals.push(totalGpa[i].value);
     }
 
     gpaTotals = gpaTotals.map(x => Number(x)).filter(index => index !== 0);;
    
-    console.log(gpaTotals);
     let endGpa = gpaTotals.reduce((a, b) => a + b);
     endGpa = endGpa / gpaTotals.length;
 
@@ -120,11 +119,3 @@ totalButton.onclick = function() {
 
 
 }
-
-
-
-
-
-// combined_gpa.push(gpa);
-// combined_gpa = combined_gpa.splice(combined_gpa[0], 1);
-// console.log(combined_gpa)
