@@ -8,6 +8,7 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   font-family: "roboto", sans-serif;
+  font-size: 87.5%;
   color: #fff;
   margin: 0;
   min-height: 100vh;
@@ -19,6 +20,19 @@ h2,
 p {
   display: block;
   margin-left: 2rem;
+  font-weight: 700;
+}
+
+@media screen and (min-width: 350px) {
+  p {
+    font-size: 1.2rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  p {
+    font-size: 0.7rem;
+  }
 }
 
 /* header section*/
@@ -26,28 +40,95 @@ p {
 /*Forms section*/
 
 ul li {
-  width: 50%;
-  float: left;
+  font-size: 0.8rem;
+  width: 120%;
   list-style: none;
+}
+
+@media screen and (min-width: 290px) {
+  ul li {
+    font-size: 0.6rem;
+    width: 50%;
+    float: left;
+    list-style: none;
+  }
+}
+
+@media screen and (min-width: 350px) {
+  ul li {
+    font-size: 0.7rem;
+  }
+}
+
+@media screen and (min-width: 400px) {
+  ul li {
+    font-size: 0.8rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  ul li {
+    font-size: 1.1rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  ul li {
+    font-size: 0.6rem;
+  }
 }
 
 label {
   display: inline-block;
-  width: 50%;
+  width: 48%;
   margin-top: 0.5rem;
 }
 
 #label_one {
   display: inline-block;
-  margin-top: 2rem;
+  margin-top: 1.8rem;
 }
 
 input {
   display: inline;
-  width: 25%;
-  padding-left: 0.5rem;
-  margin-right: 1rem;
-  margin-left: 0.5rem;
+  width: 18%;
+  text-align: center;
+}
+
+@media screen and (min-width: 320px) {
+  input {
+    width: 27%;
+    text-align: center;
+  }
+}
+
+@media screen and (min-width: 400px) {
+  input {
+    width: 27%;
+    text-align: center;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  input {
+    width: 27%;
+  }
+}
+@media screen and (min-width: 1024px) {
+  input {
+    width: 27%;
+    text-align: center;
+  }
+}
+
+#totalGpa {
+  font-size: 68.5%;
+  width: 28%;
+}
+
+.endGpaLabel {
+  font-size: 87.5%;
+  width: 60%;
 }
 
 .grid {
@@ -60,12 +141,12 @@ input {
   justify-items: center;
 }
 
-@media screen and (min-width: 1150px) {
+@media screen and (min-width: 1024px) {
   .grid {
-    grid-template-columns: 34rem 34rem;
+    grid-template-columns: 16rem 16rem;
     grid-template-rows: 1fr;
-    column-gap: 3rem;
-    margin: 2rem;
+    column-gap: 4rem;
+    margin: 2rem 1rem 2rem 3rem;
     justify-items: center;
   }
 }
@@ -81,28 +162,124 @@ input {
 }
 
 .block__container form {
-  display: flexbox;
+  display: block;
   flex-direction: column;
 }
 
 .button__container {
-  text-align: left;
+  text-align: center;
+  margin-left: 1.3rem;
   padding-bottom: 1rem;
+}
+
+@media screen and (min-width: 290px) {
+  .button__container {
+    text-align: right;
+    margin-right: 1.4rem;
+  }
+}
+
+@media screen and (min-width: 320px) {
+  .button__container {
+    text-align: right;
+    margin-right: 0.7rem;
+  }
+}
+
+@media screen and (min-width: 375px) {
+  .button__container {
+    text-align: right;
+    margin-right: 1.1rem;
+  }
+}
+
+@media screen and (min-width: 400px) {
+  .button__container {
+    text-align: right;
+    margin-right: 1.4rem;
+  }
+}
+
+@media screen and (min-width: 540px) {
+  .button__container {
+    text-align: right;
+    margin-right: 2.4rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .button__container {
+    text-align: right;
+    margin-right: 4.2rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .button__container {
+    margin-right: 0.8rem;
+  }
 }
 
 .btn {
   display: inline;
   outline: none;
-  width: 5.6rem;
-  margin: 1.5rem 0.1rem 0.5rem 0;
-  padding: 0.5rem 1.5rem 0.5rem 1.5rem;
-  border-radius: 1rem;
-  align-self: center;
+  font-size: 79%;
+  font-weight: 700;
+  width: 30.5%;
+  margin: 1.5rem 0.1rem 0.5rem 0rem;
+  padding: 0.15rem 0.1rem 0.15rem 0.1rem;
+  border-radius: 0.4rem;
+}
+
+@media screen and (min-width: 290px) {
+  .btn {
+    width: 18%;
+  }
+}
+
+@media screen and (min-width: 375px) {
+  .btn {
+    width: 18%;
+  }
+}
+
+@media screen and (min-width: 400px) {
+  .btn {
+    font-size: 80%;
+    font-weight: 700;
+    padding: 0.25rem 0.1rem;
+    width: 19.8%;
+  }
+}
+
+@media screen and (min-width: 540px) {
+  .btn {
+    font-size: 80%;
+    font-weight: 700;
+    padding: 0.25rem 0.1rem;
+    width: 16.8%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .btn {
+    font-size: 120%;
+    font-weight: 700;
+    width: 16%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .btn {
+    font-size: 60%;
+    font-weight: 700;
+    width: 18%;
+  }
 }
 
 #endGpaLabel {
   margin-left: 0rem;
-  padding-left: 1.3rem;
+  padding-left: 0rem;
   width: 25%;
   text-align: center;
 }
