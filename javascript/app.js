@@ -1,12 +1,12 @@
 // calculate GPA for year one in Alberta, Canada
 
-function calculateGpaOne(arg) {
+function calculateGpa(arg) {
     let elementList = arg.elements;
     let numberList = [];
     let letterList = [];
     let gpaList = [];
     
-    const testForRerun = arg.querySelector('ul').lastElementChild;
+    const testForRerun = arg.querySelector('ul').lastElementChild.lastElementChild;
     
     if (testForRerun.value > 0) {
         testForRerun.value = '';
@@ -51,7 +51,7 @@ function calculateGpaOne(arg) {
         if (numberList[i] > 84)
             letterList.push('A');
     }
-
+        
     for (let i = 0; i < letterList.length; i++) {
         if (letterList[i] == 'f')
             gpaList.push(0);
@@ -76,14 +76,15 @@ function calculateGpaOne(arg) {
         if (letterList[i] == 'A')
             gpaList.push(4);
     }
-
+    
     let sum = gpaList.reduce((a, b) => a + b);
     let gpa = sum / letterList.length;
 
     gpa = Number((Math.abs(gpa) * 100).toPrecision(15));
     gpa = Math.round(gpa) / 100 * Math.sign(gpa)
 
-    const gpaInput = arg.querySelector('ul').lastElementChild;
+    const gpaInput = arg.querySelector('ul').lastElementChild.lastElementChild;
+   
     gpaInput.value = gpa;  
 }
 
@@ -100,7 +101,7 @@ totalButton = document.getElementById('finalGpaBtn');
 totalButton.onclick = function() {  
     let gpaTotals = [];
     
-    totalGpa = document.getElementsByClassName('finalGpa');
+    totalGpa = document.getElementsByClassName('yearGpa');
     
     for (i = 0; i < totalGpa.length; i++) {
         gpaTotals.push(totalGpa[i].value);
