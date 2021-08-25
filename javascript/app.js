@@ -1,3 +1,23 @@
+
+function addDate() {
+
+  const idSelection = document.getElementById("footer__text");
+  
+  const currentTime = new Date();
+
+  idSelection.textContent = "Current date & time: " 
+    + currentTime.getDate().toString().padStart(2, '0') + "/"
+    + (currentTime.getMonth()+1).toString().padStart(2, '0') + "/"
+    + currentTime.getFullYear() + "  "  
+    + currentTime.getHours().toString().padStart(2, '0') + ":"  
+    + currentTime.getMinutes().toString().padStart(2, '0') + ":" 
+    + currentTime.getSeconds().toString().padStart(2, '0');
+    }
+
+window.onload = function() {
+        setInterval(addDate, 1000)
+};
+
 // calculate GPA for year one in Alberta, Canada
 
 function calculateGpa(arg) {
