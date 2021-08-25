@@ -21,6 +21,7 @@ p {
   display: block;
   margin-left: 2rem;
   font-weight: 700;
+  padding-right: 1rem;
 }
 
 @media screen and (min-width: 350px) {
@@ -67,12 +68,6 @@ ul li {
 }
 
 @media screen and (min-width: 768px) {
-  ul li {
-    font-size: 1.1rem;
-  }
-}
-
-@media screen and (min-width: 1024px) {
   ul li {
     font-size: 0.6rem;
   }
@@ -137,17 +132,17 @@ input {
   grid-template-rows: 1fr;
   grid-column-gap: 10px;
   grid-row-gap: 10px;
-  margin: 2rem;
-  justify-items: center;
+  padding-left: 1.5rem;
+  width: 80%;
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 768px) {
   .grid {
     grid-template-columns: 16rem 16rem;
-    grid-template-rows: 1fr;
     column-gap: 4rem;
-    margin: 2rem 1rem 2rem 3rem;
-    justify-items: center;
+    margin: 3rem auto 2rem auto;
+    padding-left: 0;
+    width: 60%;
   }
 }
 
@@ -157,7 +152,6 @@ input {
   background-color: rgb(49, 47, 47);
   border: 1rem ridge rgba(122, 65, 26, 0.925);
   border-radius: 1rem;
-  padding-right: 1.1rem;
   box-shadow: -3px 5px 15px;
 }
 
@@ -210,13 +204,7 @@ input {
 @media screen and (min-width: 768px) {
   .button__container {
     text-align: right;
-    margin-right: 4.2rem;
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  .button__container {
-    margin-right: 0.8rem;
+    margin-right: 0.9rem;
   }
 }
 
@@ -237,18 +225,12 @@ input {
   }
 }
 
-@media screen and (min-width: 375px) {
-  .btn {
-    width: 18%;
-  }
-}
-
 @media screen and (min-width: 400px) {
   .btn {
     font-size: 80%;
     font-weight: 700;
     padding: 0.25rem 0.1rem;
-    width: 19.8%;
+    width: 16.8%;
   }
 }
 
@@ -263,17 +245,11 @@ input {
 
 @media screen and (min-width: 768px) {
   .btn {
-    font-size: 120%;
+    font-size: 65%;
     font-weight: 700;
-    width: 16%;
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  .btn {
-    font-size: 60%;
-    font-weight: 700;
-    width: 18%;
+    padding: 0.2rem 0;
+    margin: 1.5rem 0rem;
+    width: 19%;
   }
 }
 
