@@ -69,15 +69,14 @@ ul li {
   font-size: 0.8rem;
   width: 100%;
   list-style: none;
-}
+  float: left;
+ }
 
 @media screen and (min-width: 290px) {
   ul li {
     font-size: 0.6rem;
     width: 50%;
-    float: left;
-    list-style: none;
-  }
+   }
 }
 
 @media screen and (min-width: 350px) {
@@ -102,16 +101,27 @@ label {
   display: inline-block;
   width: 48%;
   margin-top: 0.5rem;
+  text-align: left;
 }
+
+
+@media screen and (min-width: 320px) {
+  label {
+    width: 53%;
+    text-align: left;
+  }
+}
+
 
 #label_one {
   display: inline-block;
   margin-top: 1.8rem;
+  
 }
 
 input {
   display: inline;
-  width: 18%;
+  width: 35%;
   text-align: center;
   transition: all .2s ease-in-out;
 }
@@ -120,30 +130,11 @@ input:focus {
 background-color: rgb(252, 158, 16);
 }
 
-@media screen and (min-width: 320px) {
-  input {
-    width: 27%;
-    text-align: center;
-  }
-}
-
-@media screen and (min-width: 400px) {
-  input {
-    width: 27%;
-    text-align: center;
-  }
-}
 
 @media screen and (min-width: 768px) {
   input {
-    width: 27%;
-  }
-}
-@media screen and (min-width: 1024px) {
-  input {
-    width: 27%;
-    text-align: center;
-  }
+    width: 29%;
+   }
 }
 
 #totalGpa {
@@ -172,9 +163,7 @@ background-color: rgb(252, 158, 16);
     grid-template-columns: repeat(2, 16rem);
     column-gap: 4rem;
     margin: 2rem auto 2rem auto;
-    padding-left: 0;
     width: 60%;
-    justify-content: center;
   }
 }
 
@@ -189,7 +178,7 @@ background-color: rgb(252, 158, 16);
 }
 
 .block__container:last-of-type {
-margin-bottom: 5rem;
+  margin-bottom: 5rem;
 }
 
 .block__container form {
@@ -212,35 +201,30 @@ margin-bottom: 5rem;
 
 @media screen and (min-width: 320px) {
   .button__container {
-    text-align: right;
     margin-right: 0.7rem;
   }
 }
 
 @media screen and (min-width: 375px) {
   .button__container {
-    text-align: right;
     margin-right: 1.1rem;
   }
 }
 
 @media screen and (min-width: 400px) {
-  .button__container {
-    text-align: right;
+  .button__container {  
     margin-right: 1.4rem;
   }
 }
 
 @media screen and (min-width: 540px) {
-  .button__container {
-    text-align: right;
+  .button__container { 
     margin-right: 2.4rem;
   }
 }
 
 @media screen and (min-width: 768px) {
-  .button__container {
-    text-align: right;
+  .button__container { 
     margin-right: 0.9rem;
   }
 }
@@ -309,16 +293,19 @@ margin-bottom: 5rem;
   background-color: var(--tertiary-color);
   width: 100%;
   padding-bottom: 1rem;
-  text-align: center;
 }
 
 .footer p {
   font-size: 90%;
+  text-align: center;
 }
 
 @media screen and (min-width: 768px) {
   .footer {
-    font-size: 60%;
+    font-size: 70%;
+  }
+
+  .footer p {
     text-align: right;
   }
 }
