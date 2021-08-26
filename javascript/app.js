@@ -1,42 +1,40 @@
+/*jslint browser:true */
+/*jshint esversion: 6 */
+/*jshint -W097 */
+
 
 function addDate() {
+    'use strict';
+    var idSelection = document.getElementById("footer__text"),
+        currentTime = new Date();
 
-  const idSelection = document.getElementById("footer__text");
-  
-  const currentTime = new Date();
+    idSelection.textContent = "Current date & time: " + currentTime.getDate().toString().padStart(2, '0') + "/" + (currentTime.getMonth()+1).toString().padStart(2, '0') + "/" + currentTime.getFullYear() + "  " + currentTime.getHours().toString().padStart(2, '0') + ":" + currentTime.getMinutes().toString().padStart(2, '0') + ":" + currentTime.getSeconds().toString().padStart(2, '0');
+}
 
-  idSelection.textContent = "Current date & time: " 
-    + currentTime.getDate().toString().padStart(2, '0') + "/"
-    + (currentTime.getMonth()+1).toString().padStart(2, '0') + "/"
-    + currentTime.getFullYear() + "  "  
-    + currentTime.getHours().toString().padStart(2, '0') + ":"  
-    + currentTime.getMinutes().toString().padStart(2, '0') + ":" 
-    + currentTime.getSeconds().toString().padStart(2, '0');
-    }
-
-window.onload = function() {
-        setInterval(addDate, 1000)
+window.onload = function () {
+    'use strict';
+    setInterval(addDate, 1000);
 };
 
 // calculate GPA for year one in Alberta, Canada
 
 function calculateGpa(arg) {
-    let elementList = arg.elements;
-    let numberList = [];
-    let gpaList = [];
-    
-    const testForRerun = arg.querySelector('ul').lastElementChild.lastElementChild;
-    
-    if (testForRerun.value > 0) {
+    var elementList = arg.elements,
+        numberList = [],
+        gpaList = [],
+        testForRerun = arg.querySelector('ul').lastElementChild.lastElementChild,
+        i;
+
+    if (testForRerun.value >= 0) {
         testForRerun.value = '';
     }
     
-    for (let i = 0; i < elementList.length; i++)
+    for (i = 0; i < elementList.length; i++)
         if (elementList[i].value !== '')
             numberList.push((elementList[i].value));
     numberList = numberList.map(x => Number(x));
     
-    for (let i = 0; i < numberList.length; i++) {
+    for (var i = 0; i < numberList.length; i++) {
         if (numberList[i] < 50)
             gpaList.push(0);
 
@@ -53,7 +51,7 @@ function calculateGpa(arg) {
             gpaList.push(2);
 
         if (numberList[i] > 66 && numberList[i] < 70)
-            gpaList.push(2.3);;
+            gpaList.push(2.3);
 
         if (numberList[i] > 69 && numberList[i] < 73)
             gpaList.push(2.7);
@@ -70,16 +68,14 @@ function calculateGpa(arg) {
         if (numberList[i] > 84)
             gpaList.push(4);
     }
-        console.log(gpaList);
-
     
-    let sum = gpaList.reduce((a, b) => a + b);
-    let gpa = sum / numberList.length;
+    var sum = gpaList.reduce((a, b) => a + b),
+        gpa = sum / numberList.length;
 
     gpa = Number((Math.abs(gpa) * 100).toPrecision(15));
-    gpa = Math.round(gpa) / 100 * Math.sign(gpa)
+    gpa = Math.round(gpa) / 100 * Math.sign(gpa);
 
-    const gpaInput = arg.querySelector('ul').lastElementChild.lastElementChild;
+    var gpaInput = arg.querySelector('ul').lastElementChild.lastElementChild;
    
     gpaInput.value = gpa;  
 }
@@ -92,30 +88,42 @@ function resetGpa(resultText) {
 
 // cumulative GPA
 
-totalButton = document.getElementById('finalGpaBtn');
+var totalButton = document.getElementById('finalGpaBtn');
 
 totalButton.onclick = function() {  
     let gpaTotals = [];
     
-    totalGpa = document.getElementsByClassName('yearGpa');
+    let totalGpa = document.getElementsByClassName('yearGpa');
     
-    for (i = 0; i < totalGpa.length; i++) {
-        gpaTotals.push(totalGpa[i].value);
+      
+    for (let i = 0; i < totalGpa.length; i++) {
+        if (totalGpa[i].value == "0") {
+            gpaTotals.push(5);
+        
+        }
+        if (totalGpa[i].value != "0") {
+            gpaTotals.push(totalGpa[i].value); 
     }
-
-    gpaTotals = gpaTotals.map(x => Number(x)).filter(index => index !== 0);;
+}
+    gpaTotals = gpaTotals.map(x => Number(x)).filter(index => index !== 0);
    
+    
+    for (let i = 0; i < gpaTotals.length; i++) {
+        if (gpaTotals[i] === 5) {
+        
+            gpaTotals[i] = 0;
+    }
+}
+    
     let endGpa = gpaTotals.reduce((a, b) => a + b);
     endGpa = endGpa / gpaTotals.length;
 
     endGpa = Number((Math.abs(endGpa) * 100).toPrecision(15));
     endGpa = Math.round(endGpa) / 100 * Math.sign(endGpa);
 
-    const result = document.getElementById("totalGpa");
+    var result = document.getElementById("totalGpa");
     result.value = endGpa;
-
-
-}
+};
 
 
 
