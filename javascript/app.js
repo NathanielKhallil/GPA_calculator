@@ -1,15 +1,5 @@
 /*jshint esversion: 6 */
 
-function addDate() {
-    const idSelection = document.getElementById("footer__text"),
-        currentTime = new Date();
-
-    idSelection.textContent = "Current date & time: " + currentTime.getDate().toString().padStart(2, '0') + "/" + (currentTime.getMonth()+1).toString().padStart(2, '0') + "/" + currentTime.getFullYear() + "  " + currentTime.getHours().toString().padStart(2, '0') + ":" + currentTime.getMinutes().toString().padStart(2, '0') + ":" + currentTime.getSeconds().toString().padStart(2, '0');
-}
-
-window.onload = function () {
-    setInterval(addDate, 1000);
-};
 
 // calculate GPA for year one in Alberta, Canada
 
@@ -84,12 +74,12 @@ function resetGpa(resultText) {
 
 // cumulative GPA
 
-const totalButton = document.getElementById('finalGpaBtn');
+let totalButton = document.getElementById('finalGpaBtn');
 
 totalButton.onclick = function() {  
     let gpaTotals = [];
     
-    const totalGpa = document.getElementsByClassName('yearGpa');
+    let totalGpa = document.getElementsByClassName('yearGpa');
     
       
     Array.from(totalGpa).forEach(element => {
@@ -118,6 +108,16 @@ totalButton.onclick = function() {
     result.value = Math.round(endGpa) / 100 * Math.sign(endGpa);
 };
 
+function addDate() {
+    const idSelection = document.getElementById("footer__text"),
+        currentTime = new Date();
+
+    idSelection.textContent = "Current date & time: " + currentTime.getDate().toString().padStart(2, '0') + "/" + (currentTime.getMonth()+1).toString().padStart(2, '0') + "/" + currentTime.getFullYear() + "  " + currentTime.getHours().toString().padStart(2, '0') + ":" + currentTime.getMinutes().toString().padStart(2, '0') + ":" + currentTime.getSeconds().toString().padStart(2, '0');
+}
+
+window.onload = function () {
+    setInterval(addDate, 1000);
+};
 
 
 // code for potential letter grade version
