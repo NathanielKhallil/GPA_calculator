@@ -1,9 +1,8 @@
 /*jshint esversion: 6 */
 
-
 // calculate GPA for year one in Alberta, Canada
 
-function calculateGpa(arg) {
+window.calculateGpa = function calculateGpa(arg) {
     let elementList = arg.elements,
         numberList = [],
         gpaList = [],
@@ -67,7 +66,7 @@ function calculateGpa(arg) {
 }
 
 // reset First Year GPA, delete entry from cumulative GPA
-function resetGpa(resultText) {
+window.resetGpa = function resetGpa(resultText) {
     resultText.reset();
 }
 
