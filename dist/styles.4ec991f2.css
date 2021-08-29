@@ -1,0 +1,310 @@
+:root {
+  --tertiary-color: rgb(49, 47, 47);
+}
+
+html {
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  position: relative;
+  background-image: url(/rockies@2x.32ccaec5.webp);
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-family: "roboto", sans-serif;
+  font-size: 87.5%;
+  color: #fff;
+  margin: 0;
+  min-width: 100%;
+  box-sizing: border-box;
+}
+
+@media screen and (min-width: 600px) {
+  body {
+    background-image: url(/rockies.e7d3d980.webp);
+  }
+}
+
+h1,
+h2,
+p {
+  display: block;
+  margin: 0;
+  padding: 1rem 0 0 2rem;
+  font-weight: 500;
+  padding-right: 1rem;
+  padding-left: 2rem;
+}
+
+@media screen and (min-width: 350px) {
+  p {
+    font-weight: 400;
+    text-align: justify;
+  }
+}
+
+@media screen and (min-width: 540px) {
+  p {
+    font-size: 0.7rem;
+  }
+}
+
+/* header section*/
+.hero {
+  background-color: var(--tertiary-color);
+  margin: 0 0 1rem 0;
+  padding-bottom: 0.3rem;
+}
+
+.hero p {
+  padding-top: 0.5rem;
+}
+
+@media screen and (min-width: 600px) {
+  .hero {
+    margin: 0;
+    padding-bottom: 1rem;
+  }
+}
+
+/*Forms section*/
+
+ul li {
+  font-size: 0.8rem;
+  width: 100%;
+  list-style: none;
+  float: left;
+}
+
+@media screen and (min-width: 290px) {
+  ul li {
+    font-size: 0.6rem;
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: 350px) {
+  ul li {
+    font-size: 0.7rem;
+  }
+}
+
+@media screen and (min-width: 400px) {
+  ul li {
+    font-size: 0.8rem;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  ul li {
+    font-size: 0.6rem;
+  }
+}
+
+label {
+  display: inline-block;
+  width: 48%;
+  margin-top: 0.5rem;
+  text-align: left;
+}
+
+@media screen and (min-width: 320px) {
+  label {
+    width: 53%;
+    text-align: left;
+  }
+}
+
+.label__total {
+  display: inline-block;
+  margin-top: 1.8rem;
+}
+
+input {
+  display: inline;
+  width: 29%;
+  text-align: center;
+  transition: all 0.2s ease-in-out;
+}
+
+input:focus {
+  background-color: rgb(252, 158, 16);
+}
+
+@media screen and (min-width: 600px) {
+  input {
+    width: 29%;
+  }
+}
+
+#totalGpa {
+  width: 28%;
+}
+
+.endGpaLabel {
+  margin-top: 1.8rem;
+  font-size: 87.5%;
+  width: 60%;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  width: 80%;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+@media screen and (min-width: 600px) {
+  .grid {
+    grid-template-columns: repeat(2, 16rem);
+    column-gap: 4rem;
+    margin: 2rem auto 2rem auto;
+    width: 60%;
+  }
+}
+
+.block__container {
+  display: block;
+  width: 100%;
+  background-color: var(--tertiary-color);
+  border: 1rem ridge rgba(122, 65, 26, 0.925);
+  border-radius: 1rem;
+  box-shadow: -3px 5px 15px;
+  justify-self: center;
+}
+
+.block__container:last-of-type {
+  margin-bottom: 5rem;
+}
+
+.block__container form {
+  display: block;
+  flex-direction: column;
+}
+
+.button__container {
+  text-align: center;
+  margin-left: 1.3rem;
+  padding-bottom: 0rem;
+}
+
+@media screen and (min-width: 290px) {
+  .button__container {
+    text-align: right;
+    margin-right: 1.4rem;
+  }
+}
+
+@media screen and (min-width: 320px) {
+  .button__container {
+    margin-right: 0.4rem;
+  }
+}
+
+@media screen and (min-width: 375px) {
+  .button__container {
+    margin-right: 0.5rem;
+  }
+}
+
+@media screen and (min-width: 400px) {
+  .button__container {
+    margin-right: 0.8rem;
+  }
+}
+
+@media screen and (min-width: 520px) {
+  .button__container {
+    margin-right: 1.5rem;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .button__container {
+    margin-right: 0.3rem;
+  }
+}
+
+.btn {
+  display: inline;
+  outline: none;
+  font-size: 79%;
+  font-weight: 700;
+  width: 30.5%;
+  margin: 1.5rem 0rem 0.5rem 0rem;
+  padding: 0.15rem 0.1rem 0.15rem 0.1rem;
+  border-radius: 0.4rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn:active {
+  transform: scale(0.9);
+  font-size: 65%;
+}
+
+.btn:hover {
+  border: 2px solid rgb(252, 158, 16);
+}
+
+@media screen and (min-width: 290px) {
+  .btn {
+    width: 18%;
+  }
+}
+
+@media screen and (min-width: 400px) {
+  .btn {
+    font-size: 80%;
+    font-weight: 700;
+    padding: 0.25rem 0.1rem;
+    width: 16.8%;
+  }
+}
+
+@media screen and (min-width: 560px) {
+  .btn {
+    font-size: 65%;
+    font-weight: 700;
+    padding: 0.25rem 0rem;
+    width: 19%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .btn {
+    margin: 1.5rem 0 0.5rem 0;
+  }
+}
+
+/* Footer section */
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  background-color: var(--tertiary-color);
+  width: 100%;
+  padding-bottom: 1rem;
+}
+
+.footer p {
+  font-size: 90%;
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+  .footer {
+    font-size: 70%;
+  }
+
+  .footer p {
+    text-align: right;
+  }
+}
+
+
+/*# sourceMappingURL=/styles.4ec991f2.css.map */
