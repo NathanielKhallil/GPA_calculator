@@ -3,66 +3,125 @@
 // calculate GPA for year one in Alberta, Canada
 
 window.calculateGpa = function calculateGpa(arg) {
-    let elementList = arg.elements,
-        numberList = [],
+    let elementList = arg,
+        numberList1 = [],
+        numberList2 = [],
         gpaList = [],
-        testForRerun = arg.querySelector('ul').lastElementChild.lastElementChild;
+        weightFactor =[],
+        testForRerun = arg.nextElementSibling.nextElementSibling.lastElementChild.lastElementChild;
         
-
     if (testForRerun.value >= 0) {
         testForRerun.value = '';
     }
     
-    Array.from(elementList).forEach(element => {
-        if (element.value !== '')
-            numberList.push((element.value));
+    Array.from(elementList.children).forEach(element => {
+        if (element.lastElementChild.value !== '')
+            numberList1.push((element.lastElementChild.value));
     });
-    numberList = numberList.map(x => Number(x));
+
+    numberList1 = numberList1.map(x => Number(x));
     
-    numberList.forEach(element => {
+    numberList1.forEach(element => {
         if (element < 50)
             gpaList.push(0);
-
+            
         if (element > 49 && element < 55)
-            gpaList.push(1);
-
+            gpaList.push(1*3);
+            
         if (element > 54 && element < 60)
-            gpaList.push(1.3);
-
+            gpaList.push(1.3*3);
+            
         if (element > 59 && element < 64)
-            gpaList.push(1.7);
-
+            gpaList.push(1.7*3);
+            
         if (element > 63 && element < 67)
-            gpaList.push(2);
-
+            gpaList.push(2*3);
+            
         if (element > 66 && element < 70)
-            gpaList.push(2.3);
-
+            gpaList.push(2.3*3);
+            
         if (element > 69 && element < 73)
-            gpaList.push(2.7);
-
+            gpaList.push(2.7*3);
+            
         if (element > 72 && element < 76)
-            gpaList.push(3);
-
+            gpaList.push(3*3);
+            
         if (element > 75 && element < 80)
-            gpaList.push(3.3);
-
+            gpaList.push(3.3*3);
+            
         if (element > 79 && element < 85)
-            gpaList.push(3.7);
-
+            gpaList.push(3.7*3);
+            
         if (element > 84)
-            gpaList.push(4);
+            gpaList.push(4*3);
+        
+        weightFactor.push(3);   
     });
+  
+     
+    // check for 1.5 weighted courses
+
+    Array.from(elementList.nextElementSibling.children).forEach(element => {
+        if (element.lastElementChild.value !== '')
+            numberList2.push((element.lastElementChild.value));
+    });
+
+    numberList2 = numberList2.map(x => Number(x));
     
+    console.log(numberList2)
+
+    numberList2.forEach(element => {
+        if (element < 50)
+            gpaList.push(0);
+            
+        if (element > 49 && element < 55)
+            gpaList.push(1*1.5);
+            
+        if (element > 54 && element < 60)
+            gpaList.push(1.3*1.5);
+            
+        if (element > 59 && element < 64)
+            gpaList.push(1.7*1.5);
+            
+        if (element > 63 && element < 67)
+            gpaList.push(2*1.5);
+            
+        if (element > 66 && element < 70)
+            gpaList.push(2.3*1.5);
+            
+        if (element > 69 && element < 73)
+            gpaList.push(2.7*1.5);
+            
+        if (element > 72 && element < 76)
+            gpaList.push(3*1.5);
+            
+        if (element > 75 && element < 80)
+            gpaList.push(3.3*1.5);
+            
+        if (element > 79 && element < 85)
+            gpaList.push(3.7*1.5);
+            
+        if (element > 84)
+            gpaList.push(4*1.5);
+        
+        weightFactor.push(1.5);   
+    });
+    console.log(weightFactor);
+    console.log(gpaList);
     let sum = gpaList.reduce((a, b) => a + b),
-    gpa = sum / numberList.length;
+    weightTotal = weightFactor.reduce((a, b) => a + b);
+    console.log(sum);
+    console.log(weightTotal);
+    let gpa = sum / weightTotal;
+    console.log(gpa);
 
     gpa = Number((Math.abs(gpa) * 100).toPrecision(15));
     gpa = Math.round(gpa) / 100 * Math.sign(gpa);
 
-    let gpaInput = arg.querySelector('ul').lastElementChild.lastElementChild;
-   
+    let gpaInput = arg.nextElementSibling.nextElementSibling.lastElementChild.lastElementChild;
+    console.log(gpaInput);
     gpaInput.value = gpa;  
+    
 }
 
 // reset First Year GPA, delete entry from cumulative GPA
