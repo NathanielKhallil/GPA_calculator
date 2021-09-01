@@ -1,6 +1,6 @@
 /*jshint esversion: 6 */
 
-// calculate GPA for year one in Alberta, Canada
+// calculate GPA for each year in Alberta, Canada
 
 window.calculateGpa = function calculateGpa(arg) {
     let elementList = arg,
@@ -57,8 +57,7 @@ window.calculateGpa = function calculateGpa(arg) {
         
         weightFactor.push(3);   
     });
-  
-     
+
     // check for 1.5 weighted courses
 
     Array.from(elementList.nextElementSibling.children).forEach(element => {
@@ -68,8 +67,6 @@ window.calculateGpa = function calculateGpa(arg) {
 
     numberList2 = numberList2.map(x => Number(x));
     
-    console.log(numberList2)
-
     numberList2.forEach(element => {
         if (element < 50)
             gpaList.push(0);
@@ -106,29 +103,24 @@ window.calculateGpa = function calculateGpa(arg) {
         
         weightFactor.push(1.5);   
     });
-    console.log(weightFactor);
-    console.log(gpaList);
+
     let sum = gpaList.reduce((a, b) => a + b),
-    weightTotal = weightFactor.reduce((a, b) => a + b);
-    console.log(sum);
-    console.log(weightTotal);
+        weightTotal = weightFactor.reduce((a, b) => a + b);
+   
     let gpa = sum / weightTotal;
-    console.log(gpa);
+    
 
     gpa = Number((Math.abs(gpa) * 100).toPrecision(15));
     gpa = Math.round(gpa) / 100 * Math.sign(gpa);
 
     let gpaInput = arg.nextElementSibling.nextElementSibling.lastElementChild.lastElementChild;
-    console.log(gpaInput);
-    gpaInput.value = gpa;  
-    
+        gpaInput.value = gpa;      
 }
 
-// reset First Year GPA, delete entry from cumulative GPA
+// reset Year GPA, delete entry from cumulative GPA
 window.resetGpa = function resetGpa(resultText) {
     resultText.reset();
 }
-
 
 // cumulative GPA
 
@@ -138,12 +130,10 @@ totalButton.onclick = function() {
     let gpaTotals = [];
     
     let totalGpa = document.getElementsByClassName('yearGpa');
-    
       
     Array.from(totalGpa).forEach(element => {
         if (element.value == "0") {
             gpaTotals.push(5);
-        
         }
         if (element.value != "0") {
             gpaTotals.push(element.value); 
@@ -151,7 +141,6 @@ totalButton.onclick = function() {
     });
     gpaTotals = gpaTotals.map(x => Number(x)).filter(index => index !== 0);
    
-    
     gpaTotals.forEach(function(element, index) {
         if (element === 5) {
             gpaTotals[index] = 0;
