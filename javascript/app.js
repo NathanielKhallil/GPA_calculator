@@ -100,28 +100,34 @@ window.calculateGpa = function calculateGpa(arg) {
     weightFactor.push(1.5);
   });
   // total and rounding to 2 decimals
-  let sum = gpaList.reduce((a, b) => a + b),
-    weightTotal = weightFactor.reduce((a, b) => a + b);
+  try {
+    let sum = gpaList.reduce((a, b) => a + b),
+      weightTotal = weightFactor.reduce((a, b) => a + b);
 
-  let gpa = sum / weightTotal;
+    let gpa = sum / weightTotal;
 
-  gpa = Number((Math.abs(gpa) * 100).toPrecision(15));
-  gpa = (Math.round(gpa) / 100) * Math.sign(gpa);
+    gpa = Number((Math.abs(gpa) * 100).toPrecision(15));
+    gpa = (Math.round(gpa) / 100) * Math.sign(gpa);
 
-  let gpaInput =
-    arg.nextElementSibling.nextElementSibling.lastElementChild.lastElementChild;
-  gpaInput.value = gpa;
+    let gpaInput =
+      arg.nextElementSibling.nextElementSibling.lastElementChild
+        .lastElementChild;
+    gpaInput.value = gpa;
+  } catch (err) {
+    console.log("User entered no values.");
+  }
 };
 
-// reset Year GPA, delete entry from cumulative GPA
+// reset Year GPA, delete entry from cumulative GPA, delete error element
 
 window.resetGpa = function resetGpa(resultText) {
-  let errorMessage = "Enter a valid number between 0 and 100.";
-  resultText.reset();
+  let errorMessage = "Enter a valid number between 0 and 100.",
+    targetElement = resultText.querySelector("ul").firstElementChild;
 
-  if (resultText.firstElementChild.textContent === errorMessage) {
-    resultText.removeChild(resultText.firstElementChild);
+  if (targetElement.textContent === errorMessage) {
+    targetElement.remove();
   }
+  resultText.reset();
 };
 
 // cumulative GPA
@@ -204,4 +210,4 @@ window.onload = function () {
 //         gpaList.push(3.7);//
 //     if (letterList[i] == 'A')
 //         gpaList.push(4);
-// }
+//}
